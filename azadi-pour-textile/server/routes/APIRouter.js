@@ -4,6 +4,6 @@ const userRouter = require('./userRouter');
 
 const router = express.Router({mergeParams: true});
 
-router.route('/users', userRouter);
+router.use('/users', userRouter);
 
 module.exports = router;

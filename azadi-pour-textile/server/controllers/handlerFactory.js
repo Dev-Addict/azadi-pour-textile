@@ -7,7 +7,7 @@ exports.deleteOne = Model =>
         async (req, res) => {
             const doc = await Model.findByIdAndDelete(req.params.id);
             if (!doc) {
-                throw new AppError('No document found with specified ID', 404);
+                throw new AppError('0x0000B', 404);
             }
 
             res.status(204).json({
@@ -27,7 +27,7 @@ exports.updateOne = Model =>
             });
 
             if (!doc) {
-                throw new AppError('No document found with that ID', 404);
+                throw new AppError('0x0000B', 404);
             }
 
             res.status(200).json({
@@ -61,7 +61,7 @@ exports.getOne = (Model, populateOptions) =>
             }
             const doc = await query;
             if (!doc) {
-                throw new AppError('No document found with this ID', 404);
+                throw new AppError('0x0000B', 404);
             }
             res.status(201).json({
                 status: 'success',

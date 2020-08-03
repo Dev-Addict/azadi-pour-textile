@@ -4,3 +4,9 @@
 0x00003: Invalid sign in information.
 0x00004: Expired token.
 0x00005: Something went wrong.
+0x00006: A user must have a email.
+0x00007: A user must havev a valid email.
+0x00008: A user must have a password.
+0x00009: A user must have a valid password.
+0x0000A: A user must have a valid rote(user or admin).
+0x0000B: No document found with specified id.

@@ -5,20 +5,20 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: [true, 'A user must have a email.'],
+        required: [true, '0x00006'],
         validate: {
-            validator: value => /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(value),
-            message: ({value}) => `${value} is not a valid email.`
+            validator: value => /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i.test(value),
+            message: '0x00007'
         },
         lowercase: true,
         unique: true
     },
     password: {
         type: String,
-        required: [true, 'A User Must Have A password'],
+        required: [true, '0x00008'],
         validate: {
             validator: value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,100}$/.test(value),
-            message: 'Invalid password.'
+            message: '0x00009'
         },
         select: false
     },
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: {
             values: ['admin', 'user'],
-            message: 'A User Must Have rote Value Set To admin Or User.'
+            message: '0x0000A'
         },
         default: 'user'
     },
