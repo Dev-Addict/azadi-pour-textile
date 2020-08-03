@@ -9,6 +9,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const next = require('next');
 
+const errorController = require('./controllers/errorController');
+
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = app.getRequestHandler();
@@ -31,6 +33,8 @@ app.prepare()
         server.get('*', (req, res) => {
             return handle(req, res);
         });
+
+        server.use(errorController);
 
         const Port = process.env.PORT || 3000;
 

@@ -1,0 +1,6 @@
+0x00000: Invalid field value.
+0x00001: Duplicate field value.
+0x00002: Invalid input.
+0x00003: Invalid sign in information.
+0x00004: Expired token.
+0x00005: Something went wrong.
