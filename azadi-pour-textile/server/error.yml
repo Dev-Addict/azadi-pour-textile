@@ -14,3 +14,5 @@
 0x0000D: User belong to the user that no longer exists.
 0x0000E: User has changed the password after creating token.
 0x0000F: You don't have permision to access route.
+0x00010: Invalid username or password.
+0x00011: Incorrect email or password.
