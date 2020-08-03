@@ -7,6 +7,7 @@ dotenv.config({
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 const next = require('next');
 
 const APIRouter = require('./routes/APIRouter');
@@ -23,6 +24,8 @@ app.prepare()
         server.use(express.json({
             limit: '10kb'
         }));
+
+        server.use(cookieParser());
 
         server.use((req, res, next) => {
             res.header("Access-Control-Allow-Origin", "*");
