@@ -125,3 +125,14 @@ exports.isSignedIn = catchRequest(
         });
     }
 );
+
+exports.signUp = catchRequest(
+    async (req, res) => {
+        const user = await User.create({
+            email: req.body.email,
+            password: req.body.password
+        });
+
+        sendToken(user, 201, res);
+    }
+);
