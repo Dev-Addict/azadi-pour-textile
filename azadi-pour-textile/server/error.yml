@@ -10,3 +10,7 @@
 0x00009: A user must have a valid password.
 0x0000A: A user must have a valid rote(user or admin).
 0x0000B: No document found with specified id.
+0x0000C: No token.
+0x0000D: User belong to the user that no longer exists.
+0x0000E: User has changed the password after creating token.
+0x0000F: You don't have permision to access route.
