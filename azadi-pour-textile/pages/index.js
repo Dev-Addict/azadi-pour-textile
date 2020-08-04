@@ -1,6 +1,10 @@
-const Home = () => {
+import BaseLayout from "../components/BaseLayout";
+
+const Home = ({auth}) => {
     return (
-        <div>Home</div>
+        <BaseLayout auth={auth} title="خانه">
+            <div>Home</div>
+        </BaseLayout>
     );
 };
 
