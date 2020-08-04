@@ -1,25 +1,52 @@
+import {useState} from 'react';
+import Link from "next/link";
+
+import '../styles/components/Header.css';
+
 const Header = ({auth: {isSignedIn}}) => {
+    const [isOpen, setOpen] = useState(false);
+
     return (
         <header>
             <nav>
                 <div className="header-logo">
-                    <h4>پارچه مبلی آزادی پور</h4>
+                    <Link href="/">
+                        <a>
+                            <h4>پارچه مبلی آزادی پور</h4>
+                        </a>
+                    </Link>
                 </div>
-                <ul>
-                    <li>خانه</li>
+                <ul className={isOpen ? 'active' : ''}>
+                    <Link href="/">
+                        <a>
+                            <li>خانه</li>
+                        </a>
+                    </Link>
+                    <Link href="/cotact">
+                        <a>
+                            <li>تماس با ما</li>
+                        </a>
+                    </Link>
+                    <Link href="/shop">
+                        <a>
+                            <li>فروشگاه</li>
+                        </a>
+                    </Link>
+                    {
+                        isSignedIn ?
+                            <Link href="/sign">
+                                <a>
+                                    <li>ورود/ثبت نام</li>
+                                </a>
+                            </Link> :
+                            <Link href="/signout">
+                                <a>
+                                    <li>ورود/ثبت نام</li>
+                                </a>
+                            </Link>
+                    }
                 </ul>
-                <ul>
-                    <li>درباره ما</li>
-                </ul>
-                <ul>
-                    <li>تماس با ما</li>
-                </ul>
-                <ul>
-                    <li>فروشگاه</li>
-                </ul>
-                <ul>
-                    <li>ورود/ثبت نام</li>
-                </ul>
+                <i className="bars icon" onClick={() => setOpen(v => !v)}/>
             </nav>
         </header>
     );

@@ -2,6 +2,7 @@ import App from "next/app";
 import Cookie from 'js-cookie';
 
 import azadiPourTextile from '../api/azadiPourTextile';
+import '../styles/_app.css';
 
 class _App extends App {
     static async getInitialProps({Component, router, ctx}) {

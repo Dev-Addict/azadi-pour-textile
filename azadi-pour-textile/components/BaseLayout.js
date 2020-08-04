@@ -8,6 +8,9 @@ const BaseLayout = ({children, className = '', auth, title = ''}) => {
         <div className="base-layout-container">
             <Head>
                 <title>پارچه مبلی آزادی پور{title ? ` - ${title}` : ''}</title>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+                <link rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css"/>
             </Head>
             <Header auth={auth}/>
             <main className={`base-layout-main ${className}`}>
