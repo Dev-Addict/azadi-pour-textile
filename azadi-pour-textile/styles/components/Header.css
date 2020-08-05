@@ -75,3 +75,7 @@ header nav ul.active {
 header nav ul.active li {
     transform: translateX(0);
 }
+
+.active body {
+    overflow: hidden;
+}
