@@ -34,6 +34,8 @@ app.prepare()
             next();
         });
 
+        server.use(express.static('APIPublic'));
+
         server.use('/api/v1', APIRouter);
 
         server.get('*', (req, res) => {
