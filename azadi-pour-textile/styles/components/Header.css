@@ -59,6 +59,7 @@ header nav .bars {
         padding: 20px;
         transform: translateX(-100%);
         transition: all 500ms ease-in;
+        z-index: 1;
     }
 
     header nav ul li {
