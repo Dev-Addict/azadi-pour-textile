@@ -12,7 +12,7 @@ const Header = ({auth: {isSignedIn}}) => {
                 <div className="header-logo">
                     <Link href="/">
                         <a>
-                            <h4>پارچه مبلی آزادی پور</h4>
+                            <h4>پارچه مبلی آزادی پور کویر</h4>
                         </a>
                     </Link>
                 </div>

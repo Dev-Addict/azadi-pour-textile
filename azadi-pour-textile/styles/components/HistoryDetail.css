@@ -1,0 +1,34 @@
+.history-detail-container {
+    background-position: center center;
+    background-size: cover;
+    direction: rtl;
+    font-family: 'Open Sans', sans-serif;
+    color: #F5F6F7;
+}
+
+.history-detail-image-filter {
+    background-color: #6B695ABB;
+    padding: 100px;
+}
+
+.history-detail-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.history-detail-description {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .history-detail-image-filter {
+        padding: 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .history-detail-image-filter {
+        padding: 26px;
+    }
+}
