@@ -1,10 +1,13 @@
 import ServiceCard from "./ServiceCard";
 import '../styles/components/ServiceList.css';
 
-const ServiceList = ({data}) => {
+const ServiceList = ({data, title}) => {
     return (
         <div className="service-list-container">
-            {data.map(service => <ServiceCard {...service} key={service.title}/>)}
+            <div className="service-list-cover">
+                <div className="service-list-title">{title}</div>
+                {data.map(service => <ServiceCard {...service} key={service.title}/>)}
+            </div>
         </div>
     );
 };

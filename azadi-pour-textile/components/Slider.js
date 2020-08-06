@@ -17,20 +17,22 @@ const Slider = ({data = []}) => {
                 left: '-100%',
                 zIndex: 5
             }}>
-                <div className="slider-content-text">
-                    <div className="slider-title">
-                        {
-                            index % 2 === 0 ?
-                                data[index % data.length].title :
-                                data[prevIndex % data.length].title
-                        }
-                    </div>
-                    <div className="slider-description">
-                        {
-                            index % 2 === 0 ?
-                                data[index % data.length].description :
-                                data[prevIndex % data.length].description
-                        }
+                <div className="slider-cover">
+                    <div className="slider-content-text">
+                        <div className="slider-title">
+                            {
+                                index % 2 === 0 ?
+                                    data[index % data.length].title :
+                                    data[prevIndex % data.length].title
+                            }
+                        </div>
+                        <div className="slider-description">
+                            {
+                                index % 2 === 0 ?
+                                    data[index % data.length].description :
+                                    data[prevIndex % data.length].description
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,20 +45,22 @@ const Slider = ({data = []}) => {
                 left: '100%',
                 zIndex: 5
             }}>
-                <div className="slider-content-text">
-                    <div className="slider-title">
-                        {
-                            index % 2 === 1 ?
-                                data[index % data.length].title :
-                                data[prevIndex % data.length].title
-                        }
-                    </div>
-                    <div className="slider-description">
-                        {
-                            index % 2 === 1 ?
-                                data[index % data.length].description :
-                                data[prevIndex % data.length].description
-                        }
+                <div className="slider-cover">
+                    <div className="slider-content-text">
+                        <div className="slider-title">
+                            {
+                                index % 2 === 1 ?
+                                    data[index % data.length].title :
+                                    data[prevIndex % data.length].title
+                            }
+                        </div>
+                        <div className="slider-description">
+                            {
+                                index % 2 === 1 ?
+                                    data[index % data.length].description :
+                                    data[prevIndex % data.length].description
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

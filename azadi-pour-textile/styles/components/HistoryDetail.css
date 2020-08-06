@@ -4,31 +4,33 @@
     direction: rtl;
     font-family: 'Open Sans', sans-serif;
     color: #F5F6F7;
+    background-attachment: fixed;
 }
 
 .history-detail-image-filter {
     background-color: #6B695ABB;
-    padding: 100px;
+    padding: 200px 100px;
 }
 
 .history-detail-title {
     font-size: 36px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     font-weight: bold;
 }
 
 .history-detail-description {
     font-size: 20px;
+    padding-right: 40px;
 }
 
 @media screen and (max-width: 1024px) {
     .history-detail-image-filter {
-        padding: 50px;
+        padding: 200px 50px;
     }
 }
 
 @media screen and (max-width: 600px) {
     .history-detail-image-filter {
-        padding: 26px;
+        padding: 100px 26px;
     }
 }

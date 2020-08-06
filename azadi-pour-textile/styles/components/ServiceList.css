@@ -1,3 +1,17 @@
 .service-list-container {
     text-align: center;
+    background-image: url("https://ftguidetobusinesstraining.com/wp-content/uploads/2018/08/Business-Services01.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.service-list-cover {
+    padding: 120px 20px;
+    background-color: #F5F6F7DD;
+}
+
+.service-list-title {
+    margin-bottom: 50px;
+    font-size: 50px;
 }

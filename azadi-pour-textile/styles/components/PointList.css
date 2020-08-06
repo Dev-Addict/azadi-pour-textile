@@ -1,6 +1,19 @@
 .point-list-container {
-    padding: 10px;
     text-align: center;
-    background-color: #FBF9DD;
+    background-image: url("https://study.com/cimages/videopreview/videopreview-full/ekwlzrmjif.jpg");
     color: #453F3C;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.point-list-cover {
+    background-color: #F5F6F7DD;
+    padding: 100px 10px;
+}
+
+.point-list-title {
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 50px;
 }

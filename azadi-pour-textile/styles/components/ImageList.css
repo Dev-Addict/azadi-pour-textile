@@ -1,0 +1,29 @@
+.image-list-image {
+    width: 25%;
+    padding-top: 25%;
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+    margin-top: -4px;
+    background-attachment: fixed;
+}
+
+.image-list-content {
+    padding: 40px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #BBB99D;
+    color: #000000BB;
+    text-align: center;
+}
+
+.image-list-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    .image-list-image {
+        width: 50%;
+        padding-top: 50%;
+    }
+}
