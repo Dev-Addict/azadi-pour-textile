@@ -21,6 +21,6 @@ export default [
         image: 'https://www.palmira-textile.com/wp-content/uploads/2020/01/image-208-min-min.jpeg'
     },
     {
-        image: 'https://lh3.googleusercontent.com/proxy/OTINXMbZT0sWabDdzCNdwCkxeR3PhDInDclazGsn5gr44_tdyO7Vr4iu5_jiQ24IRxY9sY0gdcfObl6TQV1oJ-JO94rwLHm2YXfwRig9jeSyk_GMDw'
+        image: 'https://m.cofacecentraleurope.com/var/cofaweb/storage/images/common/sectors-database/textile-clothing/2026925-1-fre-FR/Textile-Clothing_image670x217.jpg'
     }
 ];

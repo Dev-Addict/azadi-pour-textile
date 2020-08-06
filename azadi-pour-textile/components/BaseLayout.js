@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import Header from "./Header";
 import BasePage from "./BasePage";
+import Footer from "./Footer";
 
 const BaseLayout = ({children, className = '', auth, title = ''}) => {
     return (
@@ -20,6 +21,7 @@ const BaseLayout = ({children, className = '', auth, title = ''}) => {
                     </BasePage>
                 </div>
             </main>
+            <Footer/>
         </div>
     );
 };

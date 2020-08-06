@@ -6,6 +6,7 @@
     display: inline-block;
     margin-top: -4px;
     background-attachment: fixed;
+    margin-bottom: -4px;
 }
 
 .image-list-content {
