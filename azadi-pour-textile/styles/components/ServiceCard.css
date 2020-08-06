@@ -1,9 +1,9 @@
 .service-card-container {
     width: 270px;
     display: inline-block;
-    margin: 50px;
     direction: rtl;
     padding: 20px;
+    margin-top: 20px;
 }
 
 .service-card-image {
