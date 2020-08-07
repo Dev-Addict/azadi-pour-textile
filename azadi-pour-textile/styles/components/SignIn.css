@@ -1,0 +1,27 @@
+.sign-in-container {
+    width: 260px;
+    padding: 40px 10px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    box-shadow: 2px 3px 6px 8px #00000088;
+    border-radius: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sign-in-avatar {
+    width: 200px;
+    height: 200px;
+}
+
+.sign-in-submit {
+    margin-top: 40px;
+    padding: 5px 30px 10px;
+    border-radius: 10px;
+    border: 2px solid #CBC9AD;
+    background-color: #8B896D;
+    color: #F5F6F7;
+}

@@ -31,7 +31,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                Designed by <a href="https:\\github.com/AriaMAN-ACT">WolfMAN</a> | <i className="copyright outline icon"/> 2020
+                Designed by <a href="https://github.com/WolfMAN-DEV">WolfMAN</a> | <i className="copyright outline icon"/> 2020
             </div>
         </div>
     );

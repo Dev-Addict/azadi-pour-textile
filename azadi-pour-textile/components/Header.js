@@ -33,7 +33,7 @@ const Header = ({auth: {isSignedIn}}) => {
                         </a>
                     </Link>
                     {
-                        isSignedIn ?
+                        !isSignedIn ?
                             <Link href="/sign">
                                 <a>
                                     <li>ورود/ثبت نام</li>
@@ -41,7 +41,7 @@ const Header = ({auth: {isSignedIn}}) => {
                             </Link> :
                             <Link href="/signout">
                                 <a>
-                                    <li>ورود/ثبت نام</li>
+                                    <li>خروج</li>
                                 </a>
                             </Link>
                     }

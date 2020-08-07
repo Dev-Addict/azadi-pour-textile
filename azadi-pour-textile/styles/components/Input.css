@@ -1,0 +1,48 @@
+.input-container {
+    padding: 15px;
+}
+
+.input-icon, .input-input {
+    display: inline-block;
+}
+
+.input-icon {
+    margin-right: 10px;
+}
+
+.input-icon > i {
+    color: #00000088;
+    transition: all 200ms ease-in;
+}
+
+.input-input > h5 {
+    position: relative;
+    top: 17px;
+    z-index: -1;
+    transition: all 200ms ease-in;
+    color: #00000088;
+}
+
+.input-input > input {
+    border: none;
+    border-bottom: solid 3px #00000088;
+    background-color: #00000000;
+    transition: all 200ms ease-in;
+}
+
+.input-input.focus > h5 {
+    top: 0;
+    color: #000000;
+}
+
+.input-input.focus > input {
+    border-bottom-color: #CBC9AD;
+}
+
+.input-input.filled > h5 {
+    top: 0;
+}
+
+.input-icon.focus > i {
+    color: #CBC9AD;
+}
