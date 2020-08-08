@@ -46,3 +46,9 @@
 .input-icon.focus > i {
     color: #CBC9AD;
 }
+
+.input-error {
+    color: #FE4A49;
+    margin-top: 5px;
+    direction: rtl;
+}

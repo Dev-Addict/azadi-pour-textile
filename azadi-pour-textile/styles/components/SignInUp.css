@@ -25,3 +25,7 @@
     background-color: #8B896D;
     color: #F5F6F7;
 }
+
+.sign-in-error {
+    margin-top: 10px;
+}

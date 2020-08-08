@@ -17,8 +17,9 @@ const Input = ({type, label, field, icon, form: {touched, errors}, ...props}) =>
                 <input type={type} {...field} {...props} onFocus={toggleFocus} onBlur={toggleFocus}/>
             </div>
             {
-                touched[field.name] && errors[field.name] &&
-                <div className="input-error">{errors[field.name]}</div>
+                touched[field.name] && errors[field.name] ?
+                    <div className="input-error">{errors[field.name]}</div> :
+                    <div className="input-error" style={{opacity: 0}}>A</div>
             }
         </div>
     );
