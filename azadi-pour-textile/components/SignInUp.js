@@ -40,8 +40,14 @@ const SignInUp = ({onSubmit, isSignIn}) => {
               }) => (
                 <Form onSubmit={handleSubmit} className="sign-in-container">
                     <img src="media/profile-avatar.svg" className="sign-in-avatar"/>
-                    <Field type="text" name="email" component={Input} label="پست الکترونیک" icon="envelope"/>
-                    <Field type="password" name="password" component={Input} label="رمز عبور" icon="lock"/>
+                    <Field type="text" name="email" component={Input} label="پست الکترونیک" icon="envelope" details={{
+                        title: 'پست الکترونیک',
+                        description: 'پست الکترونیک معتبر خود را وارد کنید.'
+                    }}/>
+                    <Field type="password" name="password" component={Input} label="رمز عبور" icon="lock" details={{
+                        title: 'رمز عبور',
+                        description: 'رمز عبور شما باید شامل حروف بزرک و کوچک انگلیسی، حداقل یک عدد و حداقل یک حرف خاص باشد.'
+                    }}/>
                     <div className="sign-in-error" style={{...(error ? {} : {opacity: 0})}}>
                         {error ? parseError(error) : 'A'}
                     </div>

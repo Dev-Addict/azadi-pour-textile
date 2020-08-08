@@ -10,6 +10,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Open Sans', sans-serif;
+    overflow-x: visible;
 }
 
 .sign-in-avatar {
