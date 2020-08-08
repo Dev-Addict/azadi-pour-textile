@@ -98,15 +98,15 @@ exports.signOut = (req, res) => {
 };
 
 exports.signIn = catchRequest(async (req, res) => {
-    const {username, password} = req.body;
+    const {email, password} = req.body;
     if (
-        !username ||
+        !email ||
         !password ||
-        !/^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/.test(username) ||
+        !/^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i.test(email) ||
         !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,100}$/.test(password)) {
         throw new AppError('0x00010', 400);
     }
-    const user = await User.findOne({username}).select('+password');
+    const user = await User.findOne({email}).select('+password');
 
     if (!user || !(await user.correctPassword(password, user.password))) {
         throw new AppError('0x00011', 401);

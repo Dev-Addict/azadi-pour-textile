@@ -26,6 +26,10 @@
     color: #F5F6F7;
 }
 
+.sign-in-submit:disabled {
+    opacity: 0.5;
+}
+
 .sign-in-error {
     margin-top: 10px;
 }

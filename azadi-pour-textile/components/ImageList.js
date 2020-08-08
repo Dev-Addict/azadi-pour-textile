@@ -7,7 +7,8 @@ const ImageList = ({data, title, description}) => {
                 <div className="image-list-title">{title}</div>
                 <div className="image-list-description">{description}</div>
             </div>
-            {data.map(({image}) => <div className="image-list-image" style={{backgroundImage: `url(${image})`}}/>)}
+            {data.map(({image}) => <div className="image-list-image" key={image}
+                                        style={{backgroundImage: `url(${image})`}}/>)}
         </div>
     );
 };
