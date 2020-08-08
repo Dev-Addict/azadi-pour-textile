@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {Formik, Form, Field} from 'formik';
 
 import Input from "../components/Input";
+import parseError from "../utils/parseError";
 import '../styles/components/signInUp.css';
 
 const initialValues = {
@@ -41,7 +42,9 @@ const SignInUp = ({onSubmit, isSignIn}) => {
                     <img src="media/profile-avatar.svg" className="sign-in-avatar"/>
                     <Field type="text" name="email" component={Input} label="پست الکترونیک" icon="envelope"/>
                     <Field type="password" name="password" component={Input} label="رمز عبور" icon="lock"/>
-                    <div className="sign-in-error" style={{...(error ? {} : {opacity: 0})}}>{error || 'A'}</div>
+                    <div className="sign-in-error" style={{...(error ? {} : {opacity: 0})}}>
+                        {error ? parseError(error) : 'A'}
+                    </div>
                     <button type="submit" disabled={isSubmitting} className="sign-in-submit">
                         {
                             isSignIn ?

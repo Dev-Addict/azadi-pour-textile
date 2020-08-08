@@ -32,4 +32,6 @@
 
 .sign-in-error {
     margin-top: 10px;
+    color: #FE4A49;
+    direction: rtl;
 }
