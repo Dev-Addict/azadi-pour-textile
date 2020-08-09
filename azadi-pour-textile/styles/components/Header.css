@@ -79,3 +79,25 @@ header nav ul.active li {
 .active body {
     overflow: hidden;
 }
+
+.header-avatar {
+    width: 30px;
+    height: 30px;
+}
+
+.header-quick-access {
+    position: absolute;
+    z-index: 30;
+    background-color: #8B896D;
+    padding: 10px;
+    display: none;
+    border-radius: 10px;
+}
+
+.header-avatar:hover ~ .header-quick-access {
+    display: block;
+}
+
+.header-quick-access:hover {
+    display: block;
+}

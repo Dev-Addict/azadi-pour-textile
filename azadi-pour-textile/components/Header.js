@@ -1,10 +1,17 @@
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import Link from "next/link";
 
 import '../styles/components/Header.css';
 
 const Header = ({auth: {isSignedIn}}) => {
     const [isOpen, setOpen] = useState(false);
+    const [isReRendered, setReRendered] = useState(false);
+
+    const avatarRef = useRef(null);
+
+    useEffect(() => {
+        setReRendered(true);
+    }, []);
 
     return (
         <header>
@@ -39,9 +46,30 @@ const Header = ({auth: {isSignedIn}}) => {
                                     <li>ورود/ثبت نام</li>
                                 </a>
                             </Link> :
-                            <Link href="/signout">
+                            <Link href="/dashboard">
                                 <a>
-                                    <li>خروج</li>
+                                    <li>
+                                        <img src="/media/profile-avatar.svg" className="header-avatar" ref={avatarRef}/>
+                                        <div className="header-quick-access" style={{
+                                            top: (((avatarRef || {}).current || {}).offsetTop + ((avatarRef || {}).current || {}).clientTop) + 30 || undefined,
+                                            left: (((avatarRef || {}).current || {}).offsetLeft + ((avatarRef || {}).current || {}).clientLeft) || undefined
+                                        }}>
+                                            <div className="header-quick-access-item">
+                                                <Link href="/dashboard">
+                                                    <a>
+                                                        حساب
+                                                    </a>
+                                                </Link>
+                                            </div>
+                                            <div className="header-quick-access-item">
+                                                <Link href="/signout">
+                                                    <a>
+                                                        خروج
+                                                    </a>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </a>
                             </Link>
                     }
