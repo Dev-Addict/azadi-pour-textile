@@ -40,7 +40,7 @@ const SignInUp = ({onSubmit, isSignIn}) => {
               }) => (
                 <Form onSubmit={handleSubmit} className="sign-in-container">
                     <img src="media/profile-avatar.svg" className="sign-in-avatar"/>
-                    <Field type="text" name="email" component={Input} label="پست الکترونیک" icon="envelope" details={{
+                    <Field type="email" name="email" component={Input} label="پست الکترونیک" icon="envelope" details={{
                         title: 'پست الکترونیک',
                         description: 'پست الکترونیک معتبر خود را وارد کنید.'
                     }}/>

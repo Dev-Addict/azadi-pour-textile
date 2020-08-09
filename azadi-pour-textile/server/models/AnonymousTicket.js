@@ -33,11 +33,7 @@ const anonymousTicketSchema = new mongoose.Schema({
         type: String,
         required: [true, '0x0001A'],
         maxLength: [600, '0x0001B'],
-        minLength: [50, '0x0001C'],
-        validate: {
-            validator: value => /^([\u0600-\u06FF]+\s?)+$/.test(value),
-            message: '0x0001D'
-        }
+        minLength: [50, '0x0001C']
     }
 });
 

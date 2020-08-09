@@ -22,7 +22,7 @@ const Header = ({auth: {isSignedIn}}) => {
                             <li>خانه</li>
                         </a>
                     </Link>
-                    <Link href="/cotact">
+                    <Link href="/contact">
                         <a>
                             <li>تماس با ما</li>
                         </a>

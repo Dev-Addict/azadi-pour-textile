@@ -1,4 +1,4 @@
-.sign-in-container {
+.contact-form {
     width: 260px;
     padding: 40px 10px;
     text-align: center;
@@ -13,12 +13,13 @@
     overflow-x: visible;
 }
 
-.sign-in-avatar {
-    width: 200px;
-    height: 200px;
+.contact-error {
+    margin-top: 10px;
+    color: #FE4A49;
+    direction: rtl;
 }
 
-.sign-in-submit {
+.contact-submit {
     margin-top: 40px;
     padding: 5px 30px 10px;
     border-radius: 10px;
@@ -28,16 +29,15 @@
     transition: all 300ms ease-in;
 }
 
-.sign-in-submit:disabled {
+.contact-submit:disabled {
     opacity: 0.5;
 }
 
-.sign-in-submit:hover {
-    opacity: 0.8;
+.contact-title {
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.sign-in-error {
-    margin-top: 10px;
-    color: #FE4A49;
-    direction: rtl;
+.contact-submit:hover {
+    opacity: 0.8;
 }

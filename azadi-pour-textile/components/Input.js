@@ -3,13 +3,12 @@ import {useState, createRef, useEffect} from 'react';
 import '../styles/components/Input.css';
 
 const Input = ({type, label, details: {title, description}, field, icon, form: {touched, errors}, ...props}) => {
-    const [isFocus, setFocus] = useState(false);
-
-    let iconRef = {};
+    let iconRef;
 
     useEffect(() => {
         iconRef = createRef();
     }, []);
+    const [isFocus, setFocus] = useState(false);
 
     const toggleFocus = () => setFocus(v => !v);
 
@@ -23,8 +22,8 @@ const Input = ({type, label, details: {title, description}, field, icon, form: {
                 <input type={type} {...field} {...props} onFocus={toggleFocus} onBlur={toggleFocus}/>
             </div>
             <div className={`input-details${isFocus ? ' focus' : ''}`} style={{
-                top: (iconRef.current || {}).offsetTop + (iconRef.current || {}).clientTop,
-                left: (iconRef.current || {}).offsetLeft + (iconRef.current || {}).clientLeft
+                top: (((iconRef || {}).current || {}).offsetTop + ((iconRef || {}).current || {}).clientTop) || undefined,
+                left: (((iconRef || {}).current || {}).offsetLeft + ((iconRef || {}).current || {}).clientLeft) || undefined
             }}>
                 <div className="input-details-title">{title}</div>
                 <div className="input-details-description">{description}</div>
