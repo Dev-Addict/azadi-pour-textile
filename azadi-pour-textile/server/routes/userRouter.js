@@ -12,7 +12,9 @@ router.route('/auth/signin').post(authController.signIn);
 router.route('/auth/signup').post(authController.signUp);
 
 router.route('/')
-    .get(userController.getUsers)
+    .get(authController.protect,
+        authController.restrictTo('admin'),
+        userController.getUsers)
     .post(authController.protect,
         authController.restrictTo('admin'),
         uploadImage.single('avatar'),
@@ -20,7 +22,9 @@ router.route('/')
         userController.createUser);
 
 router.route('/:id')
-    .get(userController.getUser)
+    .get(authController.protect,
+        authController.restrictTo('admin'),
+        userController.getUser)
     .patch(authController.protect,
         authController.restrictTo('admin', 'selfUser'),
         userController.filterbody,
