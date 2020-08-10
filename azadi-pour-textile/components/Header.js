@@ -61,6 +61,7 @@ const Header = ({auth: {isSignedIn}}) => {
                                                     </a>
                                                 </Link>
                                             </div>
+                                            <hr/>
                                             <div className="header-quick-access-item">
                                                 <Link href="/signout">
                                                     <a>
