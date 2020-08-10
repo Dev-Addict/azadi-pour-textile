@@ -44,7 +44,40 @@ const userSchema = new mongoose.Schema({
         type: String,
         select: false
     },
-    verifyEmailExpires: Date
+    verifyEmailExpires: Date,
+    firstName: {
+        type: String,
+        validate: {
+            validator: value => /^([\u0600-\u06FF]{3,}\s?)+$/.test(value),
+            message: '0x0001D'
+        }
+    },
+    lastName: {
+        type: String,
+        validate: {
+            validator: value => /^([\u0600-\u06FF]{3,}\s?)+$/.test(value),
+            message: '0x0001E'
+        }
+    },
+    avatarImage: {
+        type: String,
+        default: 'default.svg'
+    },
+    cellphone: {
+        type: String,
+        validate: {
+            validator: value => /^00989[0-9]{9}$/.test(value),
+            message: '0x0001F'
+        }
+    },
+    isCellphoneVerified: {
+        type: Boolean,
+        default: false
+    },
+    verifyCellphoneToken: {
+        type: String,
+        select: false
+    }
 });
 
 userSchema.methods.createResetPasswordToken = function() {
@@ -66,6 +99,17 @@ userSchema.methods.createVerifyEmailToken = function() {
             .update(verifyToken)
             .digest('hex');
     this.verifyEmailExpires = Date.now() + 600000;
+    return verifyToken;
+};
+
+userSchema.methods.createVerifyCellphoneToken = function() {
+    const verifyToken = crypto.randomBytes(64).toString('hex');
+    this.verifyCellphoneToken =
+        crypto
+            .createHash('sha256')
+            .update(verifyToken)
+            .digest('hex');
+    this.verifyCellphoneExpires = Date.now() + 600000;
     return verifyToken;
 };
 
@@ -105,7 +149,13 @@ userSchema.pre('save', function(next) {
 userSchema.pre('save', function (next) {
     if (this.isModified('isEmailVerified') && !this.isNew) {
         this.verifyEmailToken = undefined;
-        this.VerifyEmailExpires = undefined;
+    }
+    next();
+});
+
+userSchema.pre('save', function (next) {
+    if (this.isModified('isCellphoneVerified') && !this.isNew) {
+        this.verifyCellphoneToken = undefined;
     }
     next();
 });
