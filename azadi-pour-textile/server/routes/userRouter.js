@@ -2,6 +2,7 @@ const express = require('express');
 
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const uploadImage = require('../utils/uploadImage');
 
 const router = express.Router();
 
@@ -12,11 +13,22 @@ router.route('/auth/signup').post(authController.signUp);
 
 router.route('/')
     .get(userController.getUsers)
-    .post(authController.protect, authController.restrictTo('admin'), userController.createUser);
+    .post(authController.protect,
+        authController.restrictTo('admin'),
+        uploadImage.single('avatar'),
+        userController.saveAvatar,
+        userController.createUser);
 
 router.route('/:id')
     .get(userController.getUser)
-    .patch(authController.protect, authController.restrictTo('admin', 'selfUser'), userController.filterbody, userController.updateUser)
-    .delete(authController.protect, authController.restrictTo('admin', 'selfUser'), userController.deleteUser);
+    .patch(authController.protect,
+        authController.restrictTo('admin', 'selfUser'),
+        userController.filterbody,
+        uploadImage.single('avatar'),
+        userController.saveAvatar,
+        userController.updateUser)
+    .delete(authController.protect,
+        authController.restrictTo('admin', 'selfUser'),
+        userController.deleteUser);
 
 module.exports = router;

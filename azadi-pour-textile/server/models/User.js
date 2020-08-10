@@ -59,7 +59,7 @@ const userSchema = new mongoose.Schema({
             message: '0x0001E'
         }
     },
-    avatarImage: {
+    avatar: {
         type: String,
         default: 'default.svg'
     },

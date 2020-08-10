@@ -1,3 +1,5 @@
+const sharp = require('sharp');
+
 const factory = require('./handlerFactory');
 const User = require('../models/User');
 const catchRequest = require('../utils/catchRequest');
@@ -23,5 +25,22 @@ exports.filterbody = catchRequest(
         delete req.body.verifyEmailExpires;
         delete req.body.isCellphoneVerified;
         delete req.body.verifyCellphoneToken;
+        next();
+    }
+);
+
+exports.saveAvatar = catchRequest(
+    async (req, res, next) => {
+        if (req.file) {
+            const ext = req.file.mimetype.split('/')[1];
+            req.file.filename = `avatar-${req.user.id}-${Date.now()}.${ext}`;
+            req.body.avatar = req.file.filename;
+            await sharp(req.file.buffer)
+                .resize(500, 500)
+                .toFormat('jpeg')
+                .jpeg({quality: 90})
+                .toFile(`uploads/avatars/${req.file.filename}`);
+        }
+        next();
     }
 );
