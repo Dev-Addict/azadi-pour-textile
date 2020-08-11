@@ -7,12 +7,16 @@ const router = express.Router();
 
 router.route('/')
     .get(authController.protect,
+        authController.restrictTo('admin, selfUserTickets'),
         ticketController.getTickets)
     .post(authController.protect,
+        authController.setUser,
         ticketController.createTicket);
 
 router.route('/:id')
-    .get(ticketController.getTicket)
+    .get(authController.protect,
+        authController.restrictTo('admin', 'selfUserTicket'),
+        ticketController.getTicket)
     .patch(authController.protect,
         authController.restrictTo('admin'),
         ticketController.updateTicket)

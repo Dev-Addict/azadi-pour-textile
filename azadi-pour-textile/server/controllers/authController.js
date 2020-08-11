@@ -2,6 +2,7 @@ const {promisify} = require('util');
 const jsonWebToken = require('jsonwebtoken');
 
 const User = require('../models/User');
+const Ticket = require('../models/Ticket');
 const catchRequest = require('../utils/catchRequest');
 const AppError = require('../utils/AppError');
 
@@ -38,16 +39,19 @@ exports.restrictTo = (...rotes) => {
         async (req, res, next) => {
             if (rotes.includes(req.user.rote))
                 return next();
-            if (rotes.includes('selfUser') &&
-                !req.body.rote &&
-                !req.body.password &&
-                !req.body.passwordChangedAt &&
-                !req.body.passwordResetToken &&
-                !req.body.passwordResetExpires &&
-                !req.body.isEmailVerified &&
-                !req.body.verifyEmailToken &&
-                !req.body.verifyEmailExpires)
+            if (rotes.includes('selfUser'))
+                if (req.user._id === req.params.id)
+                    return next();
+            if (rotes.includes('selfUserTickets')) {
+                req.query.user = req.user._id.toString();
                 return next();
+            }
+            if (rotes.includes('selfUserTicket')) {
+                const ticket = await Ticket.findById(req.query.id);
+                if (req.user._id.toString() === ticket.user.toString()) {
+                    return next();
+                }
+            }
             throw new AppError('0x0000F', 403);
         }
     );
@@ -134,5 +138,12 @@ exports.signUp = catchRequest(
         });
 
         sendToken(user, 201, res);
+    }
+);
+
+exports.setUser = catchRequest(
+    (req, res, next) => {
+        req.body.user = req.user._id.toString();
+        next();
     }
 );
