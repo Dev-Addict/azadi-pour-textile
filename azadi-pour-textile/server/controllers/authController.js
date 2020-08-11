@@ -3,6 +3,7 @@ const jsonWebToken = require('jsonwebtoken');
 
 const User = require('../models/User');
 const Ticket = require('../models/Ticket');
+const TicketAnswer = require('../models/TicketAnswer');
 const catchRequest = require('../utils/catchRequest');
 const AppError = require('../utils/AppError');
 
@@ -51,6 +52,24 @@ exports.restrictTo = (...rotes) => {
                 if (req.user._id.toString() === ticket.user.toString()) {
                     return next();
                 }
+            }
+            if (rotes.includes('selfTicketTicketAnswers'))
+                if (req.body.ticket) {
+                    const ticket = await Ticket.findById(req.body.ticket);
+                    if (ticket.user === req.user._id)
+                        return next();
+                }
+            if (rotes.includes('selfTicketAnswer'))
+                if (req.body.ticket) {
+                    const ticket = await Ticket.findById(req.body.ticket);
+                    if (ticket.user === req.user._id)
+                        return next();
+                }
+            if (rotes.includes('selfTicketTicketAnswer')) {
+                const ticketAnswer = await TicketAnswer.findById(req.params.id);
+                const ticket = await Ticket.findById(ticketAnswer.ticket);
+                if (ticket.user === req.user._id)
+                    return next();
             }
             throw new AppError('0x0000F', 403);
         }
